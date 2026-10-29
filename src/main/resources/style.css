@@ -1,0 +1,63 @@
+.jfx-button {
+    -fx-background-color: #3b3b3b;
+    -fx-text-fill: #c57532;
+    /*-fx-font-size: 14px;*/
+    /*-fx-font-weight: bold;*/
+    /*-fx-padding: 10 20 10 20;*/
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+/* Hover state */
+.jfx-button:hover {
+    -fx-background-color: #312414;
+}
+
+/* Pressed/Clicked state */
+.jfx-button:pressed {
+    -fx-background-color: #423504;
+}
+
+.jfx-button:selected {
+    -fx-background-color: #ffffff;
+}
+
+.filterReplaysButton {
+    -fx-text-fill: #bf1f1f;
+}
+
+/* Styles the inner content pane where text is typed */
+.text-area .content {
+    -fx-background-color: #4b4b4b;
+}
+
+/* The border/padding */
+.text-area {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #ffca88;
+}
+
+.check-box {
+    -fx-text-fill: #c57532;
+}
+
+/* Unselected checkbox body */
+.check-box > .box {
+    -fx-background-color: #4b4b4b;
+    -fx-border-color: #888888;
+    -fx-border-radius: 3px;
+}
+
+.check-box:hover > .box {
+    -fx-border-color: #C29B0C
+}
+
+.check-box:selected > .box {
+    -fx-background-color: #3c3c3c;
+    -fx-border-color: #C29B0C
+}
+
+/* The tick mark inside */
+.check-box:selected > .box > .mark {
+    -fx-background-color: #C29B0C
+}

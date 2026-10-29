@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="669.0" style="-fx-background-color: #2b2b2b;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.wood.replayfilterscene.ReplayFilterController">
+   <children>
+      <AnchorPane prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: #2b2b2b;">
+         <children>
+            <JFXButton fx:id="chooseInputFolderButton" layoutX="85.0" layoutY="118.0" onAction="#chooseInputFolder" text="Choose Input Folder" textFill="WHITE" />
+            <JFXButton fx:id="chooseOutputFolderButton" layoutX="75.0" layoutY="157.0" onAction="#chooseOutputFolder" text="Choose Output Folder" textFill="WHITE" />
+            <Label fx:id="inputFolderLabel" layoutX="227.0" layoutY="115.0" prefHeight="33.0" prefWidth="392.0" style="-fx-text-fill: #ffca88;" text="-" wrapText="true">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+            <Label fx:id="outputFolderLabel" layoutX="227.0" layoutY="154.0" prefHeight="33.0" prefWidth="392.0" style="-fx-text-fill: #ffca88;" text="-" wrapText="true">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+            <Label layoutX="68.0" layoutY="249.0" style="-fx-text-fill: #c57532;;" text="Comma Separated Filters:" />
+            <TextArea fx:id="filtersTextArea" layoutX="227.0" layoutY="249.0" prefHeight="71.0" prefWidth="225.0" promptText="filter 1, filter 2" style="-fx-content: #777777; -fx-wrap-text: true;" />
+            <JFXButton fx:id="infoButton" layoutX="310.0" layoutY="18.0" onMouseClicked="#infoButtonClicked" text="Manual" textFill="WHITE" />
+            <JFXButton fx:id="filterReplaysButton" layoutX="294.0" layoutY="349.0" onAction="#filterReplays" text="Filter Replays" textFill="WHITE" />
+            <Label fx:id="filteringProgressLabel" alignment="TOP_CENTER" layoutX="5.0" layoutY="388.0" prefHeight="33.0" prefWidth="660.0" style="-fx-text-fill: #ffca88;" textAlignment="CENTER" textFill="#fc3333" wrapText="true" />
+            <JFXButton fx:id="replayParserLocationButton" layoutX="39.0" layoutY="62.0" onAction="#chooseReplayParserLocation" prefHeight="45.0" prefWidth="173.0" text="Pick RocketLeagueReplay Parser.Console.exe Location" textFill="#f8f8f8" wrapText="true" />
+            <Label fx:id="replayParserEXELabel" layoutX="227.0" layoutY="62.0" prefHeight="45.0" prefWidth="392.0" style="-fx-text-fill: #ffca88;" text="-" wrapText="true">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="filterByReplayNameCheckBox" layoutX="88.0" layoutY="181.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#filterByReplayName" prefHeight="58.0" prefWidth="151.0" text="Filter by whether    there's a replay name" textAlignment="RIGHT" textFill="WHITE" wrapText="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="49.0" prefWidth="669.0" style="-fx-background-color: #2b2b2b;">
+         <children>
+            <JFXButton fx:id="replayToJSONButton" layoutX="224.0" layoutY="8.0" onAction="#replayToJSON" text="Choose Replay File to Convert to JSON" textFill="WHITE" />
+            <AnchorPane layoutY="-16.0" prefHeight="11.0" prefWidth="669.0" style="-fx-background-color: #151515;" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
