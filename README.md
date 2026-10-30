@@ -18,7 +18,9 @@
 ## About The Project
 <img src="images/RocketLeagueReplayFilter Window.png" alt="program window">
 This project first started when I wanted to filter replays based off of titles used in game, but I realized there were more uses:
+
 * Filtering replays that have been given a name ("ReplayName" will be present in any replay given a name- even replays from 2017)
+  
 * Filtering replays based on usernames
 <br />
 
