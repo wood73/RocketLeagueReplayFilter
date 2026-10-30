@@ -63,7 +63,9 @@ It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets 
 
 * **Replay Parser:** [jjbott's RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser) with the repo built to an .exe during October 2026
 
-* **GUI Framework:** [JavaFX 27](https://openjfx.io) 
+* **GUI Framework:** [JavaFX 27](https://openjfx.io)
+
+* **UI Component Library:** [JFoenix](https://github.com/sshahine/JFoenix)
   
 * **Fat JAR:** Built using standard [Java JDK 27](https://oracle.com)
   
