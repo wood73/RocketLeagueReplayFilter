@@ -81,7 +81,7 @@ See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/t
 
 ## Built With
 
-* **Replay Parser:** [jjbott's RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser) with the repo built to an .exe during October 2026.
+* **Replay Parser:** jjbott's [RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser) with the repo built to an .exe during October 2026.
 
 * **GUI Framework:** [JavaFX 27](https://openjfx.io)
 
@@ -95,7 +95,7 @@ See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/t
 
 ## Acknowledgements
 
-This wouldn't have been possible without <a href="https://github.com/jjbott/RocketLeagueReplayParser">jjbott's RocketLeagueReplayParser</a>, my thanks to those contributors.
+This wouldn't have been possible without jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>, my thanks to those contributors.
 
 <br /><br />
 
