@@ -22,6 +22,7 @@ This project first started when I wanted to filter replays based off of titles u
 * Filtering replays based on usernames
 <br />
 # Breakdown of the Graphical User Interface
+<br />
 * The **Manual** button will also breakdown the GUI.
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>, and it'll find the path automatically.
@@ -38,6 +39,7 @@ This project first started when I wanted to filter replays based off of titles u
   
 <br />
 # Additional Information
-It takes about 1 minute and 10 seconds to analyze 50 replays.  This program has been tested to work with an input folder of over 5,000 replays.
 <br />
+It takes about 1 minute and 10 seconds to analyze 50 replays.  This program has been tested to work with an input folder of over 5,000 replays.
+<br /><br />
 If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
