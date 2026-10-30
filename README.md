@@ -23,7 +23,7 @@ This project first started when I wanted to filter replays based off of titles u
 <br />
 ## Breakdown of the Graphical User Interface
 <br />
-* The **Manual** button will also breakdown the GUI.<br />
+* The __Manual__ button will also breakdown the GUI.<br />
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>, and it'll find the path automatically.<br />
 * The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter from.<br />
