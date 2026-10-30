@@ -26,8 +26,6 @@ This project first started when I wanted to filter replays based off of titles u
 
 ## Breakdown of the Graphical User Interface
 
-<br />
-
 * The __Manual__ button will also breakdown the GUI.
 
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
@@ -81,5 +79,4 @@ See the releases page.
 
 ## Acknowledgements
 
-<br />
 This wouldn't have been possible without <a href="https://github.com/jjbott/RocketLeagueReplayParser">jjbott's RocketLeagueReplayParser</a>, shoutout to those contributors.
