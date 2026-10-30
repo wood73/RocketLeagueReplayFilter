@@ -72,7 +72,7 @@ It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets 
 <br /><br />
 If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
 <br /><br />
-If you're on steam you may need to temporarily disable steam cloud if you remove old replays and don't want them re-added from the cloud.
+If you're on steam you may need to temporarily disable steam cloud if you remove old replays and don't want them re-added from the cloud.  I'm not sure about Epic's Launcher.
 <br /><br />
 
 ## Installation
