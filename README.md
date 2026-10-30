@@ -67,7 +67,7 @@ It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets 
   
 * **Fat JAR:** Built using standard [Java JDK 27](https://oracle.com)
   
-* **Windows Executable:** Packaged via **jpackage** using [Azul ZuluFX JDK 27](https://azul.com) *(includes embedded JavaFX)*.
+* **Windows Executable:** Packaged via **jpackage** using [Azul ZuluFX JDK 27](https://azul.com) (includes embedded JavaFX).
 
 <br />
 <br />
@@ -81,4 +81,4 @@ See the releases page.
 ## Acknowledgements
 
 <br />
-This wouldn't have been possible without [jjbott's RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser), shoutout to those contributors.
+This wouldn't have been possible without [jjbott's RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser) - shoutout to those contributors.
