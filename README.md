@@ -53,10 +53,9 @@ This project first started when I wanted to filter replays based off of titles u
 
 ## Additional Information
 
-<br />
-If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
-<br /><br />
 It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  This program has been tested to work with an input folder of over 5,000 replays.
+<br /><br />
+If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
 <br /><br />
 
 ## Built With
