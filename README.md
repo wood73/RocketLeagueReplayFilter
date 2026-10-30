@@ -46,7 +46,7 @@ Use cases:
 * The __Manual__ button will also breakdown the GUI.
 
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
-  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a> (in the releases), and it'll find the path automatically.
+  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a> (in releases, not the repo), and it'll find the path automatically.
   
 * The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter from.
   
