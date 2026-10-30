@@ -21,24 +21,24 @@ This project first started when I wanted to filter replays based off of titles u
 * Filtering replays that have been given a name ("ReplayName" will be present in any replay given a name- even replays from 2017)
 * Filtering replays based on usernames
 <br />
-# Breakdown of the Graphical User Interface
+## Breakdown of the Graphical User Interface
 <br />
-* The **Manual** button will also breakdown the GUI.
+* The **Manual** button will also breakdown the GUI.<br />
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
-  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>, and it'll find the path automatically.
-* The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter from.
-* The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.
+  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>, and it'll find the path automatically.<br />
+* The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter from.<br />
+* The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.<br />
 * The **Filter by whether there's a replay name** checkbox will add "ReplayName" to the *Comma Separated Filters text area*, effectively
-  filtering for any .replay files where a custom name was set.
+  filtering for any .replay files where a custom name was set.<br />
 * The **Comma Separated Filters** text area is where you specify the text that filters the replays.  For example, an input of
   "spinning, car, wizard" (excluding quotes) will filter for any .replay files that contain all 3 strings of text.  It is case-insensitive,
-  and leading and trailing spaces will be removed.
-* The **Filter Replays** button will start filtering the replays using the above settings.
+  and leading and trailing spaces will be removed.<br />
+* The **Filter Replays** button will start filtering the replays using the above settings.<br />
 * The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
-  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.
+  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.<br />
   
 <br />
-# Additional Information
+## Additional Information
 <br />
 It takes about 1 minute and 10 seconds to analyze 50 replays.  This program has been tested to work with an input folder of over 5,000 replays.
 <br /><br />
