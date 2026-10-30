@@ -1,3 +1,5 @@
+<a id="readme-top"></a>
+
 <div align="center">
 
 <h3 align="center">Rocket League Replay Filter</h3>
