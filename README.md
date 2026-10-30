@@ -74,7 +74,7 @@ If the program tries copying a .replay file into the output folder, and a file w
 <br />
 <br />
 
-### Installation
+## Installation
 
 See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/tag/v1.0.0) page.
 
