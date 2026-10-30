@@ -1,7 +1,4 @@
 <div align="center">
-  <!-- <a href="https://github.com/wood73/RocketLeagueReplayFilter"> -->
-
-  
 
 <h3 align="center">Rocket League Replay Filter</h3>
 
@@ -9,6 +6,20 @@
     <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
   </p>
 </div>
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#breakdown-of-the-graphical-user-interface">Breakdown of the Graphical User Interface</a></li>
+    <li><a href="#additional-information">Additional Information</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#built-with">Built With</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
 
 ## About The Project
 
@@ -57,7 +68,13 @@ Use cases:
 It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  This program has been tested to work with an input folder of over 5,000 replays.
 <br /><br />
 If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
-<br /><br />
+<br />
+
+## Installation
+
+See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/tag/v1.0.0) page.
+
+<br />
 
 ## Built With
 
@@ -72,14 +89,16 @@ If the program tries copying a .replay file into the output folder, and a file w
 * **Windows Executable:** Packaged via **jpackage** using [Azul ZuluFX JDK 27](https://azul.com) (includes embedded JavaFX).
 
 <br />
-<br />
-
-## Installation
-
-See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/tag/v1.0.0) page.
-
-<br />
 
 ## Acknowledgements
 
 This wouldn't have been possible without <a href="https://github.com/jjbott/RocketLeagueReplayParser">jjbott's RocketLeagueReplayParser</a>, my thanks to those contributors.
+
+<br />
+
+## License
+
+Distributed under the MIT License. See [License](https://github.com/wood73/RocketLeagueReplayFilter/blob/master/LICENSE) for more information.
+
+<br />
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
