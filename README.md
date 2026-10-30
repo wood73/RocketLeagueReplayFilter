@@ -6,20 +6,23 @@
 <h3 align="center">Rocket League Replay Filter</h3>
 
   <p align="center">
-    This program enables Rocket League replays to be filtered (copied) to an output folder depending on 
-    whether inputted text matches what's in the .replay files (after the .replay files have been converted to 
-    readable JSON format, thanks to jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>).
-    <br />
-    <br />
     <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
   </p>
 </div>
 
 ## About The Project
+
 <img src="images/RocketLeagueReplayFilter Window.png" alt="program window">
-This project first started when I wanted to filter replays based off of titles used in game, but I realized there were more uses:
+This program enables Rocket League replays to be filtered (copied) to an output folder depending on 
+whether inputted text matches what's in the .replay files (after the .replay files have automatically been converted to 
+readable JSON format, thanks to jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>).
+<br /> <br />
+
+Use cases:
 
 * Filtering replays that have been given a name ("ReplayName" will be present in any replay given a name- even replays from 2017)
+
+* Filtering replays based on titles used in game
   
 * Filtering replays based on usernames
 <br />
@@ -73,10 +76,10 @@ If the program tries copying a .replay file into the output folder, and a file w
 
 ### Installation
 
-See the releases page.
+See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/tag/v1.0.0) page.
 
 <br />
 
 ## Acknowledgements
 
-This wouldn't have been possible without <a href="https://github.com/jjbott/RocketLeagueReplayParser">jjbott's RocketLeagueReplayParser</a>, shoutout to those contributors.
+This wouldn't have been possible without <a href="https://github.com/jjbott/RocketLeagueReplayParser">jjbott's RocketLeagueReplayParser</a>, my thanks to those contributors.
