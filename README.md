@@ -81,4 +81,4 @@ See the releases page.
 ## Acknowledgements
 
 <br />
-This wouldn't have been possible without [jjbott's RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser) - shoutout to those contributors.
+This wouldn't have been possible without [jjbott\'s RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser) - shoutout to those contributors.
