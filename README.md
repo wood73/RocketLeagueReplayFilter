@@ -77,7 +77,7 @@ If you're on Steam you may need to temporarily disable Steam Cloud if you remove
 
 ## Installation
 
-See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/tag/v1.0.0) page.
+For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/tag/v1.0.0) page.
 
 <br /><br />
 
