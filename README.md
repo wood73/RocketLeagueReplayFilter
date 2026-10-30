@@ -7,6 +7,7 @@
   </p>
 </div>
 
+<br />
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -20,6 +21,7 @@
     <li><a href="#license">License</a></li>
   </ol>
 </details>
+<br />
 
 ## About The Project
 
@@ -36,7 +38,7 @@ Use cases:
 * Filtering replays based on titles used in game
   
 * Filtering replays based on usernames
-<br />
+<br /><br />
 
 ## Breakdown of the Graphical User Interface
 
@@ -68,13 +70,13 @@ Use cases:
 It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  This program has been tested to work with an input folder of over 5,000 replays.
 <br /><br />
 If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
-<br />
+<br /><br />
 
 ## Installation
 
 See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/tag/v1.0.0) page.
 
-<br />
+<br /><br />
 
 ## Built With
 
@@ -88,17 +90,17 @@ See the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases/t
   
 * **Windows Executable:** Packaged via **jpackage** using [Azul ZuluFX JDK 27](https://azul.com) (includes embedded JavaFX).
 
-<br />
+<br /><br />
 
 ## Acknowledgements
 
 This wouldn't have been possible without <a href="https://github.com/jjbott/RocketLeagueReplayParser">jjbott's RocketLeagueReplayParser</a>, my thanks to those contributors.
 
-<br />
+<br /><br />
 
 ## License
 
 Distributed under the MIT License. See [License](https://github.com/wood73/RocketLeagueReplayFilter/blob/master/LICENSE) for more information.
 
-<br />
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<br /><br />
+<p align="left">(<a href="#readme-top">back to top</a>)</p>
