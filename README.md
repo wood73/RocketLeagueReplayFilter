@@ -21,25 +21,62 @@ This project first started when I wanted to filter replays based off of titles u
 * Filtering replays that have been given a name ("ReplayName" will be present in any replay given a name- even replays from 2017)
 * Filtering replays based on usernames
 <br />
+
 ## Breakdown of the Graphical User Interface
+
 <br />
-* The __Manual__ button will also breakdown the GUI.<br />
+
+* The __Manual__ button will also breakdown the GUI.
+
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
-  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>, and it'll find the path automatically.<br />
-* The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter from.<br />
-* The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.<br />
+  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>, and it'll find the path automatically.
+  
+* The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter from.
+  
+* The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.
+  
 * The **Filter by whether there's a replay name** checkbox will add "ReplayName" to the *Comma Separated Filters text area*, effectively
-  filtering for any .replay files where a custom name was set.<br />
+  filtering for any .replay files where a custom name was set.
+  
 * The **Comma Separated Filters** text area is where you specify the text that filters the replays.  For example, an input of
   "spinning, car, wizard" (excluding quotes) will filter for any .replay files that contain all 3 strings of text.  It is case-insensitive,
-  and leading and trailing spaces will be removed.<br />
-* The **Filter Replays** button will start filtering the replays using the above settings.<br />
-* The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
-  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.<br />
+  and leading and trailing spaces will be removed.
   
-<br />
-## Additional Information
-<br />
-It takes about 1 minute and 10 seconds to analyze 50 replays.  This program has been tested to work with an input folder of over 5,000 replays.
+* The **Filter Replays** button will start filtering the replays using the above settings.
+  
+* The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
+  jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.
+  
 <br /><br />
+
+## Additional Information
+
+<br />
 If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
+<br /><br />
+It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  This program has been tested to work with an input folder of over 5,000 replays.
+<br /><br />
+
+## Built With
+
+* **Replay Parser:** [jjbott's RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser) with the repo built to an .exe during October 2026
+
+* **GUI Framework:** [JavaFX 27](https://openjfx.io) 
+  
+* **Fat JAR:** Built using standard [Java JDK 27](https://oracle.com)
+  
+* **Windows Executable:** Packaged via **jpackage** using [Azul ZuluFX JDK 27](https://azul.com) *(includes embedded JavaFX)*.
+
+<br />
+<br />
+
+### Installation
+
+See the releases page.
+
+<br />
+
+## Acknowledgements
+
+<br />
+This wouldn't have been possible without [jjbott's RocketLeagueReplayParser](https://github.com/jjbott/RocketLeagueReplayParser), shoutout to those contributors.
