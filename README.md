@@ -57,7 +57,7 @@ Use cases:
   
 * The **Comma Separated Filters** text area is where you specify the text that filters the replays.  For example, an input of
   "spinning, car, wizard" (excluding quotes) will filter for any .replay files that contain all 3 strings of text.  It is case-insensitive,
-  and leading and trailing spaces will be removed.
+  and leading and trailing spaces will be removed from each string of text.
   
 * The **Filter Replays** button will start filtering the replays using the above settings.
   
@@ -68,9 +68,7 @@ Use cases:
 
 ## Additional Information
 
-It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  It should be able to handle any number of .replay files in the input folder.
-<br /><br />
-If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
+It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  It should be able to handle any number of .replay files in the input folder, and it doesn't overwrite files without permission.
 <br /><br />
 If you're on Steam you may need to temporarily disable Steam Cloud if you remove old replays and don't want them re-added from the cloud.  I'm not sure about Epic's Launcher.
 <br /><br />
