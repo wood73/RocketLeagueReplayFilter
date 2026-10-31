@@ -19,6 +19,7 @@
     <li><a href="#additional-information">Additional Information</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#built-with">Built With</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li><a href="#license">License</a></li>
   </ol>
@@ -90,6 +91,12 @@ For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplay
 * **Fat JAR:** Built using standard [Java JDK 27](https://oracle.com)
   
 * **Windows Executable:** Packaged via **jpackage** using [Azul ZuluFX JDK 27](https://azul.com) (includes embedded JavaFX).
+
+<br /><br />
+
+## Contact
+
+three3pade3@gmail.com
 
 <br /><br />
 
