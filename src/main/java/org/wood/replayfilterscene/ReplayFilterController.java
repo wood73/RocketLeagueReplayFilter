@@ -102,7 +102,7 @@ public class ReplayFilterController implements Initializable {
                 "filtering for any .replay files where a custom name was set.\n\n" +
                 "The comma separated filters are where you specify the text " +
                 "that filters the replays.  For example an input of " +
-                "\"spinning, car, wizard\" (excluding quotes) will filter for any files " +
+                "\"spinning, car, wizard\" (excluding quotes) will filter for any .replay files " +
                 "that contain all 3 strings of text.  It is case-insensitive, and " +
                 "leading and trailing spaces will be removed.\n\n" +
                 "The 'Filter Replays' button will start filtering the replays using the " +

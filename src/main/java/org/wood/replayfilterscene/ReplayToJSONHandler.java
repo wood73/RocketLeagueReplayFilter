@@ -6,6 +6,7 @@ import javafx.scene.control.DialogPane;
 import javafx.stage.FileChooser;
 import org.wood.util.Utility;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -78,7 +79,7 @@ public class ReplayToJSONHandler {
 
                 if(outputFile.exists()) {
 
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("");
                     alert.setHeaderText("Duplicate File Found");
                     alert.setContentText("The file '" + outputFile.getAbsoluteFile()
@@ -86,7 +87,7 @@ public class ReplayToJSONHandler {
 
                     alert.getDialogPane().getButtonTypes().setAll(
                             ButtonType.YES,
-                            ButtonType.CANCEL
+                            ButtonType.NO
                         );
 
                     DialogPane dialogPane = alert.getDialogPane();
@@ -109,19 +110,40 @@ public class ReplayToJSONHandler {
                         e.printStackTrace();
                     }
 
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("");
                     alert.setHeaderText("Successfully parsed  the .replay file to JSON");
                     alert.setContentText("The JSON file is at '" +
-                            outputFile.getAbsoluteFile().getAbsolutePath() + "'");
+                            outputFile.getAbsoluteFile().getAbsolutePath() + "'\n\n" +
+                            "Open File Explorer at the file's location?");
+
+                    alert.getDialogPane().getButtonTypes().setAll(
+                            ButtonType.YES,
+                            ButtonType.NO
+                    );
 
                     DialogPane dialogPane = alert.getDialogPane();
                     dialogPane.getStylesheets().add(
                             getClass().getResource("/alertstyle.css").toExternalForm());
                     dialogPane.getStyleClass().add("replayToJSONDialog");
 
-                    alert.show();
+                    ButtonType selectedExitOption = alert.showAndWait().get();
 
+                    // open the folder
+                    if(selectedExitOption == ButtonType.YES) {
+
+                        // get the parent file
+                        // create a new file object with absolute path to make sure parent directory exists
+                        File fileWithParent = new File(outputFile.getAbsoluteFile().getAbsolutePath());
+                        File parentFile = fileWithParent.getParentFile();
+
+                        Desktop desktop = Desktop.getDesktop();
+                        try {
+                            desktop.open(parentFile);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                 }
 
             } else {  // chosen file was not a .replay
