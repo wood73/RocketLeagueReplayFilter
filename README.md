@@ -28,7 +28,7 @@
 
 <img src="images/RocketLeagueReplayFilter Window.png" alt="program window">
 This program enables Rocket League replays to be filtered (copied) to an output folder depending on 
-whether inputted text matches what's in the .replay files (after the .replay files have automatically been converted to 
+whether inputted text matches what's in the replay files (after the replay files have automatically been converted to 
 readable JSON format, thanks to jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>).
 <br /> <br />
 
@@ -53,24 +53,24 @@ Use cases:
 * The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.
   
 * The **Filter by whether there's a replay name** checkbox will add "ReplayName" to the **Comma Separated Filters text area**, effectively
-  filtering for any .replay files where a custom name was set.
+  filtering for any replay files where a custom name was set.
   
 * The **Comma Separated Filters** text area is where you specify the text that filters the replays.  For example, an input of
-  "spinning, car, wizard" (excluding quotes) will filter for any .replay files that contain all 3 strings of text.  It is case-insensitive,
+  "spinning, car, wizard" (excluding quotes) will filter for any replay files that contain all 3 strings of text.  It is case-insensitive,
   and leading and trailing spaces will be removed.
   
 * The **Filter Replays** button will start filtering the replays using the above settings.
   
-* The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
+* The **Choose Replay File to Convert to JSON** button will prompt you to choose a replay file to convert into a readable JSON file using
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.
   
 <br /><br />
 
 ## Additional Information
 
-It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  This program has been tested to work with an input folder of over 5,000 replays.
+It takes about 1 minute and 10 seconds to analyze 50 replays, and progress gets updated in the GUI.  It should be able to handle any number of replay files in the input folder.
 <br /><br />
-If the program tries copying a .replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
+If the program tries copying a replay file into the output folder, and a file with the same name is found in the output folder, it will ask whether you want to overwrite it (prompt will only appear after all replays have been analyzed).
 <br /><br />
 If you're on Steam you may need to temporarily disable Steam Cloud if you remove old replays and don't want them re-added from the cloud.  I'm not sure about Epic's Launcher.
 <br /><br />
