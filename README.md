@@ -44,8 +44,6 @@ Use cases:
 
 ## Breakdown of the Graphical User Interface
 
-* The __Manual__ button will also breakdown the GUI.
-
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a> (in releases, not the repo), and it'll find the path automatically.
   
