@@ -3,6 +3,9 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -24,7 +27,6 @@
                </font></Label>
             <Label layoutX="68.0" layoutY="249.0" style="-fx-text-fill: #c57532;;" text="Comma Separated Filters:" />
             <TextArea fx:id="filtersTextArea" layoutX="227.0" layoutY="249.0" prefHeight="71.0" prefWidth="225.0" promptText="filter 1, filter 2" style="-fx-content: #777777; -fx-wrap-text: true;" />
-            <JFXButton fx:id="infoButton" layoutX="310.0" layoutY="18.0" onMouseClicked="#infoButtonClicked" text="Manual" textFill="WHITE" />
             <JFXButton fx:id="filterReplaysButton" layoutX="294.0" layoutY="349.0" onAction="#filterReplays" text="Filter Replays" textFill="WHITE" />
             <Label fx:id="filteringProgressLabel" alignment="TOP_CENTER" layoutX="5.0" layoutY="388.0" prefHeight="33.0" prefWidth="660.0" style="-fx-text-fill: #ffca88;" textAlignment="CENTER" textFill="#fc3333" wrapText="true" />
             <JFXButton fx:id="replayParserLocationButton" layoutX="39.0" layoutY="62.0" onAction="#chooseReplayParserLocation" prefHeight="45.0" prefWidth="173.0" text="Pick RocketLeagueReplay Parser.Console.exe Location" textFill="#f8f8f8" wrapText="true" />
@@ -34,12 +36,26 @@
                </font>
             </Label>
             <CheckBox fx:id="filterByReplayNameCheckBox" layoutX="88.0" layoutY="181.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#filterByReplayName" prefHeight="58.0" prefWidth="151.0" text="Filter by whether    there's a replay name" textAlignment="RIGHT" textFill="WHITE" wrapText="true" />
+            <MenuBar layoutX="-2.0" prefHeight="25.0" prefWidth="681.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="About">
+                  <items>
+                    <MenuItem fx:id="githubMenuItem" mnemonicParsing="false" onAction="#githubClicked" text="GitHub Page" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="manualMenuItem" mnemonicParsing="false" onAction="#manualClicked" text="Manual" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="49.0" prefWidth="669.0" style="-fx-background-color: #2b2b2b;">
          <children>
             <JFXButton fx:id="replayToJSONButton" layoutX="224.0" layoutY="8.0" onAction="#replayToJSON" text="Choose Replay File to Convert to JSON" textFill="WHITE" />
-            <AnchorPane layoutY="-16.0" prefHeight="11.0" prefWidth="669.0" style="-fx-background-color: #151515;" />
+            <AnchorPane layoutY="-16.0" prefHeight="11.0" prefWidth="669.0" style="-fx-background-color: #1f1f1f;" />
          </children>
       </AnchorPane>
    </children>

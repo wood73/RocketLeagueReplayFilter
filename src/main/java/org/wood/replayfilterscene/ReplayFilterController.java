@@ -4,20 +4,28 @@ import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.wood.util.Utility;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReplayFilterController implements Initializable {
 
+    @FXML
+    private MenuItem manualMenuItem;
 
     @FXML
-    private JFXButton infoButton;
+    private MenuItem githubMenuItem;
 
     @FXML
     private JFXButton replayParserLocationButton;
@@ -79,7 +87,6 @@ public class ReplayFilterController implements Initializable {
         replayToJSONHandler = new ReplayToJSONHandler(this);
 
         // make it so the most recently pressed button traversable / stay a different color
-        infoButton.setFocusTraversable(false);
         replayParserLocationButton.setFocusTraversable(false);
         chooseInputFolderButton.setFocusTraversable(false);
         chooseOutputFolderButton.setFocusTraversable(false);
@@ -88,8 +95,8 @@ public class ReplayFilterController implements Initializable {
 
     }
 
-    /** Executes when infoButton is clicked */
-    public void infoButtonClicked() {
+    /** Executes when the Manual menu item is clicked */
+    public void manualClicked() {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("");
@@ -118,6 +125,18 @@ public class ReplayFilterController implements Initializable {
         dialogPane.getStyleClass().add("infoDialog");
 
         alert.show();
+
+    }
+
+    /** Executes when the githubMenuItem is clicked */
+    public void githubClicked() {
+
+        try {
+            Desktop.getDesktop().browse(URI.create
+                    ("https://github.com/wood73/RocketLeagueReplayFilter/tree/master"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

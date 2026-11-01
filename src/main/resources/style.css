@@ -61,3 +61,42 @@
 .check-box:selected > .box > .mark {
     -fx-background-color: #C29B0C
 }
+
+.menu-bar {
+    -fx-background-color: #1f1f1f;
+    -fx-font-size: 13px;
+    -fx-font-family: "American Typewriter";
+}
+
+/* Styles background of menu items */
+.context-menu {
+    -fx-background-color: #1f1f1f;
+}
+
+/* Sets the text color for top-level menu items inside the menu bar */
+.menu-bar .label {
+    -fx-text-fill: #c57532;
+    /*-fx-font-weight: bold;*/
+    /*-fx-font-family: "American Typewriter";*/
+}
+
+/* Menu hover, focus, or open state */
+.menu:hover,
+.menu:focused,
+.menu:showing {
+    /*-fx-background-color: #3e1a65;*/
+    -fx-background-color: #362617;
+}
+
+/* The background of the individual menu item on hover or focus */
+.menu-item:hover,
+.menu-item:focused {
+    /*-fx-background-color: #3e1a65;*/
+    -fx-background-color: #362617;
+}
+
+/* Sets the text color for items inside the dropdown menu */
+.menu-item .label {
+    -fx-text-fill: #c57532;
+    -fx-font-family: "American Typewriter";
+}
