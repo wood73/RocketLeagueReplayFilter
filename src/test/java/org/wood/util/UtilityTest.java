@@ -63,4 +63,37 @@ class UtilityTest {
 
     }
 
+    @Test
+    public void endsWithAnyNumberInParenthesesTest() {
+
+        // test a string without parentheses
+        String test1 = "test";
+        Assertions.assertFalse(Utility.endsWithAnyNumberInParentheses(test1));
+
+        // test a string with parentheses
+        String test2 = "test()";
+        Assertions.assertFalse(Utility.endsWithAnyNumberInParentheses(test2));
+
+        // test a string ending with a number in parentheses
+        String test3 = "test (1)";
+        Assertions.assertTrue(Utility.endsWithAnyNumberInParentheses(test3));
+
+        // test a string with a number in parentheses not at the end
+        String test4 = "this is (69) a test";
+        Assertions.assertFalse(Utility.endsWithAnyNumberInParentheses(test4));
+
+        // test a string ending with letters in parentheses
+        String test5 = "  test(a)";
+        Assertions.assertFalse(Utility.endsWithAnyNumberInParentheses(test5));
+
+        // test a string ending with a space after a number in parentheses
+        String test6 = "  test(4) ";
+        Assertions.assertFalse(Utility.endsWithAnyNumberInParentheses(test6));
+
+        // test a string ending with a big number in parentheses
+        String test7 = "  test (4634523)";
+        Assertions.assertTrue(Utility.endsWithAnyNumberInParentheses(test7));
+
+    }
+
 }

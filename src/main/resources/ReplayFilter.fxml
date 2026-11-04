@@ -26,9 +26,9 @@
                   <Font size="11.0" />
                </font></Label>
             <Label layoutX="68.0" layoutY="249.0" style="-fx-text-fill: #c57532;;" text="Comma Separated Filters:" />
-            <TextArea fx:id="filtersTextArea" layoutX="227.0" layoutY="249.0" prefHeight="71.0" prefWidth="225.0" promptText="filter 1, filter 2" style="-fx-content: #777777; -fx-wrap-text: true;" />
-            <JFXButton fx:id="filterReplaysButton" layoutX="294.0" layoutY="349.0" onAction="#filterReplays" text="Filter Replays" textFill="WHITE" />
-            <Label fx:id="filteringProgressLabel" alignment="TOP_CENTER" layoutX="5.0" layoutY="388.0" prefHeight="33.0" prefWidth="660.0" style="-fx-text-fill: #ffca88;" textAlignment="CENTER" textFill="#fc3333" wrapText="true" />
+            <TextArea fx:id="filtersTextArea" layoutX="227.0" layoutY="249.0" prefHeight="71.0" prefWidth="225.0" promptText="filters are optional for the 'Filter and Rename Replays' button" style="-fx-content: #777777; -fx-wrap-text: true;" />
+            <JFXButton fx:id="filterReplaysButton" layoutX="217.0" layoutY="348.0" onAction="#filterReplays" text="Filter Replays" textFill="WHITE" />
+            <Label fx:id="filteringProgressLabel" alignment="TOP_CENTER" layoutX="35.0" layoutY="388.0" prefHeight="39.0" prefWidth="609.0" style="-fx-text-fill: #ffca88;" textAlignment="CENTER" textFill="#fc3333" wrapText="true" />
             <JFXButton fx:id="replayParserLocationButton" layoutX="39.0" layoutY="62.0" onAction="#chooseReplayParserLocation" prefHeight="45.0" prefWidth="173.0" text="Pick RocketLeagueReplay Parser.Console.exe Location" textFill="#f8f8f8" wrapText="true" />
             <Label fx:id="replayParserEXELabel" layoutX="227.0" layoutY="62.0" prefHeight="45.0" prefWidth="392.0" style="-fx-text-fill: #ffca88;" text="-" wrapText="true">
                <font>
@@ -50,6 +50,7 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <JFXButton fx:id="filterAndRenameReplaysButton" layoutX="359.0" layoutY="348.0" onAction="#filterAndRenameReplays" text="Filter and Rename Replays" textFill="WHITE" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="49.0" prefWidth="669.0" style="-fx-background-color: #2b2b2b;">

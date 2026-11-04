@@ -52,13 +52,16 @@ public class ReplayFilterController implements Initializable {
     public JFXButton filterReplaysButton;
 
     @FXML
+    public JFXButton filterAndRenameReplaysButton;
+
+    @FXML
     public Label filteringProgressLabel;
 
     @FXML
     public JFXButton replayToJSONButton;
 
     @FXML
-    CheckBox filterByReplayNameCheckBox;
+    public CheckBox filterByReplayNameCheckBox;
 
     public File inputFolder;
     public File outputFolder;
@@ -66,11 +69,12 @@ public class ReplayFilterController implements Initializable {
 
     public Stage stage;
 
-    /** Handles when filter replays button is pressed */
+    /** Handles when Filter Replays button is pressed */
     private FilterReplaysHandler filterReplaysHandler;
 
     /** Handles when replay to JSON button is pressed */
     private ReplayToJSONHandler replayToJSONHandler;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -78,7 +82,7 @@ public class ReplayFilterController implements Initializable {
         // if the replay parser exe file is local, automatically set it
         File potentialReplayParser = new File("RocketLeagueReplayParser-win-x64/" +
                 "RocketLeagueReplayParser.Console.exe");
-        if(potentialReplayParser.exists()) {
+        if(potentialReplayParser.getAbsoluteFile().exists()) {
             replayParserEXE = potentialReplayParser;
             replayParserEXELabel.setText(replayParserEXE.getAbsoluteFile().getAbsolutePath());
         }
@@ -91,6 +95,7 @@ public class ReplayFilterController implements Initializable {
         chooseInputFolderButton.setFocusTraversable(false);
         chooseOutputFolderButton.setFocusTraversable(false);
         filterReplaysButton.setFocusTraversable(false);
+        filterAndRenameReplaysButton.setFocusTraversable(false);
         replayToJSONButton.setFocusTraversable(false);
 
     }
@@ -114,6 +119,8 @@ public class ReplayFilterController implements Initializable {
                 "leading and trailing spaces will be removed.\n\n" +
                 "The 'Filter Replays' button will start filtering the replays using the " +
                 "above settings.\n\n" +
+                "The 'Filter and Rename Replays' button doesn't require filters, but supports them, " +
+                "and will rename replays in the output folder to match their in-game name (if present).\n\n" +
                 "If you want to analyze the replay files in the same format this program does, " +
                 "you can press the 'Choose Replay to Convert to JSON' button, which " +
                 "will prompt you to choose a replay file.  Make sure the " +
@@ -214,7 +221,12 @@ public class ReplayFilterController implements Initializable {
 
     /** Forwards execution on Filter Replays button click */
     public void filterReplays() {
-        filterReplaysHandler.filterReplays();
+        filterReplaysHandler.filterReplays(false);
+    }
+
+    /** Forwards execution on Filter And Rename Replays button click */
+    public void filterAndRenameReplays() {
+        filterReplaysHandler.filterReplays(true);
     }
 
     /** Forwards execution on replayToJSONButton click */

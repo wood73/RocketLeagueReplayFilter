@@ -9,13 +9,14 @@ import org.wood.util.Utility;
 
 import java.io.*;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Handles the filterReplaysButton press.
+ * Handles the filterReplaysButton and filterAndRenameReplaysButton presses.
  * Filters replays based on text matches from the text area, and copies
- * matches from the input folder into the output folder.
+ * matches from the input folder into the output folder.  And if the
+ * filterAndRenameReplaysButton was pressed, also set the filtered replay's
+ * File System name to mimic their in-game name (if set)
  */
 public class FilterReplaysHandler {
 
@@ -29,13 +30,42 @@ public class FilterReplaysHandler {
      *  Executes on a Filter Replays button click.  Filters replays based
      *  on text matches from the text area, and copies matches from the input folder
      *  into the output folder.
+     *
+     * @param renameReplays Whether filtered replay's File System name should be set to
+     *                      mimic their in-game name (if set)
+     * @throws RuntimeException if a duplicate file is found in the output folder for some reason,
+     *                          should already be checked for (duplicate in-game names are handled during renaming)
      */
-    public void filterReplays() {
+    public void filterReplays(boolean renameReplays) {
 
-        // will hold replays from the input folder that pass the filter but have a duplicate in the output folder
-        // the keys are the input files and values are the destination files
-        // will later prompt user if they want to overwrite (can't prompt user within task thread)
-        final Map<File, File> filteredReplaysThatHaveDuplicate = new HashMap<>();
+
+        // if the output folder is set and there are .replay files there, ask user if they want to proceed
+        if(controller.outputFolder != null && Utility.anyReplayFilesPresent(controller.outputFolder)) {
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("");
+            alert.setHeaderText(".replay files detected in the output folder");
+            alert.setContentText("Do you want to continue even though .replay files have been " +
+                            "found in the output folder?");
+
+            alert.getDialogPane().getButtonTypes().setAll(
+                    ButtonType.YES,
+                    ButtonType.NO
+            );
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("/alertstyle.css").toExternalForm());
+            dialogPane.getStyleClass().add("continueFilterDespiteReplaysInOutputDialog");
+
+            ButtonType selectedExitOption = alert.showAndWait().get();
+            // stop method if user cancels
+            if(selectedExitOption == ButtonType.NO) {
+                return;
+            }
+
+        }
+
 
         if(controller.replayParserEXE == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -63,7 +93,9 @@ public class FilterReplaysHandler {
 
             alert.show();
         }
-        else if(controller.filtersTextArea.getText().isEmpty()) {
+        // with empty filters, halt execution on a Filter Replays button click
+        // but with a Filter and Rename Replays button click, allow no filters
+        else if(controller.filtersTextArea.getText().isEmpty() && !renameReplays) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("");
@@ -78,10 +110,30 @@ public class FilterReplaysHandler {
             alert.show();
 
         }
+        else if(Utility.checkDuplicateReplayFiles(controller.inputFolder, controller.outputFolder)) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("");
+            alert.setHeaderText("Duplicate file(s) found");
+            alert.setContentText("Some .replay files from the input folder have the same " +
+                    "name as .replay files in the output folder.  Please make sure there are no " +
+                    "name collisions before trying again.");
+
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("/alertstyle.css").toExternalForm());
+            dialogPane.getStyleClass().add("duplicateFileDialog");
+
+            alert.show();
+
+        }
         else { // settings are set and can start filtering replays
 
-            // disable the filter replays button until task is complete
+            // disable the filter replays buttons, replayname checkbox and text area until task is complete
             controller.filterReplaysButton.setDisable(true);
+            controller.filterAndRenameReplaysButton.setDisable(true);
+            controller.filterByReplayNameCheckBox.setDisable(true);
+            controller.filtersTextArea.setDisable(true);
 
             // gather all .replay files
             ArrayList<File> replays = new ArrayList<>();
@@ -94,8 +146,8 @@ public class FilterReplaysHandler {
 
             // counter for replays that pass the filter
             final AtomicInteger numReplayFilesFiltered = new AtomicInteger(0);
-            // whether at least 1 file has been copied to the output folder
-            final AtomicBoolean hasCopiedFiles = new AtomicBoolean(false);
+            // counter for replays that have had their name changed
+            final AtomicInteger numReplayFilesNameChanged = new AtomicInteger(0);
 
             // start filtering replays in a separate thread to update progress label
             Task<Void> task = new Task<Void>() {
@@ -105,8 +157,23 @@ public class FilterReplaysHandler {
 
                     for(int i = 0; i < replays.size(); i++) {
 
-                        updateMessage("Analyzing replay " + (i + 1) + " of " + replays.size() +
-                                ".  Matches found: " + numReplayFilesFiltered.get());
+                        // if renaming replays with no filter, update label differently
+                        if(renameReplays && controller.filtersTextArea.getText().isEmpty()) {
+                            updateMessage("Analyzing and copying replay " + (i + 1) + " of " +
+                                    replays.size() + ".  Replay names changed " +
+                                    "(in output folder): " + numReplayFilesNameChanged.get());
+                        }
+                        // if renaming replays with a filter
+                        else if(renameReplays) {
+                            updateMessage("Analyzing replay " + (i + 1) + " of " + replays.size() +
+                                    ".  Matches found and copied: " + numReplayFilesFiltered.get() +
+                                    ".  Replay names changed (in output folder): " + numReplayFilesNameChanged.get());
+                        }
+                        // if filtering without renaming replays
+                        else {
+                            updateMessage("Analyzing replay " + (i + 1) + " of " + replays.size() +
+                                    ".  Matches found and copied: " + numReplayFilesFiltered.get());
+                        }
 
                         // will hold the output of the replay parser exe turning the .replay into a JSON string
                         String output = Utility.replayToJSON(replays.get(i), controller.replayParserEXE);
@@ -114,35 +181,61 @@ public class FilterReplaysHandler {
                         output = output.toLowerCase();
                         boolean matchesAllFilters = true;
                         String filterText = controller.filtersTextArea.getText().toLowerCase();
-                        // if the output ever misses a filter match, turn matchesAllFilters to false
-                        // and don't copy the .replay file.  both strings have been set to lower case
-                        for (String filter : filterText.split(",")) {
-                            filter = filter.trim();
 
-                            if (!output.contains(filter)) {
-                                matchesAllFilters = false;
+                        // if there are filters, check if they match
+                        if(!filterText.isEmpty()) {
+                            // if the output ever misses a filter match, turn matchesAllFilters to false
+                            // and don't copy the .replay file.  both strings have been set to lower case
+                            for (String filter : filterText.split(",")) {
+                                filter = filter.trim();
+
+                                if (!output.contains(filter)) {
+                                    matchesAllFilters = false;
+                                }
                             }
                         }
 
-                        // if the replay file passes the filter, copy it to the output directory
-                        // unless the file already exists in the output directory
+                        // if the replay file passes the filter (or has none and renameReplays is true),
+                        // copy it to the output directory unless the file already exists in the output directory
                         if (matchesAllFilters) {
 
                             numReplayFilesFiltered.incrementAndGet();
 
                             try {
+
+                                // set the replay filename to its old name, but if renameReplays is true
+                                // and there exists an in-game replay name, update it
+                                String replayFileName = replays.get(i).getName();
+                                if(renameReplays) {
+                                    Optional<String> newReplayFileName = Utility.getInGameReplayName(output);
+                                    if(newReplayFileName.isPresent()) {
+                                        // make sure the filename is unique
+                                        // (otherwise keep adding a number at the end until it is)
+                                        replayFileName = Utility.getUniqueReplayFile(new File(controller.outputFolder
+                                                .getAbsoluteFile().getAbsolutePath() + "/" +
+                                                newReplayFileName.get())).getName();
+
+                                        numReplayFilesNameChanged.incrementAndGet();
+                                    }
+                                }
+
                                 File destination = new File(controller.outputFolder
                                         .getAbsoluteFile().getAbsolutePath() + "/" +
-                                        replays.get(i).getName());
+                                        replayFileName);
 
-                                // if the file already exists, add to list and prompt user about overwriting after this
-                                // task is finished (can't prompt user from this thread)
-                                if (destination.exists()) {
-                                    filteredReplaysThatHaveDuplicate.put(replays.get(i), destination);
+                                // duplicates have already been checked for, if the file already exists,
+                                // something has gone very wrong. absoluteFile.exists() is more reliable as per SO
+                                if (destination.getAbsoluteFile().exists()) {
+
+                                    // creates an error dialog
+                                    throw new RuntimeException("Duplicate files should have already been checked for " +
+                                            "before filtering began, this error message should never run. " +
+                                            "Maybe report this as a bug, thanks.\n\nDuplicate file: " +
+                                            destination.getAbsoluteFile().getAbsolutePath());
 
                                 } else {  // if there is no duplicate file
+
                                     FileUtils.copyFile(replays.get(i), destination);
-                                    hasCopiedFiles.set(true);
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -162,70 +255,30 @@ public class FilterReplaysHandler {
                 // unbind so the label so it both can be set normally again, and stops listening to the task
                 controller.filteringProgressLabel.textProperty().unbind();
 
-                // if there are no duplicate replays in the output folder
-                if(filteredReplaysThatHaveDuplicate.isEmpty()) {
+                if(renameReplays && controller.filtersTextArea.getText().isEmpty()) {
 
+                    controller.filteringProgressLabel.setText("Finished analyzing " + replays.size() +
+                            " replay files that have been copied to the output folder.  " +
+                            numReplayFilesNameChanged.get() + " of them have been given a name change.");
+                }
+                else if(renameReplays) { // if renameReplays is true, but there are also filters
+
+                    controller.filteringProgressLabel.setText("Finished analyzing " + replays.size() +
+                            " replay files.  " + numReplayFilesFiltered.get() +
+                            " matching replay files have been copied to the output folder- with " +
+                            numReplayFilesNameChanged.get() + " of them given a name change.");
+                }
+                else { // renameReplays is false
                     controller.filteringProgressLabel.setText("Finished analyzing " + replays.size() +
                             " replay files.  " + numReplayFilesFiltered.get() +
                             " matching replay files have been copied to the output folder.");
                 }
-                else { // there are duplicate files and need to prompt the user whether to overwrite
 
-                    controller.filteringProgressLabel.setText("Finished analyzing " + replays.size() +
-                            " replay files.  " + (hasCopiedFiles.get() ? "Some file(s) have been copied to " +
-                        "the output folder,\nbut some duplicate file(s) have been found." :
-                            "Some duplicate file(s) have been found."));
-
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("");
-                    alert.setHeaderText("Duplicate File(s) Found");
-                    alert.setContentText("There are some replay files in the input folder that " +
-                            "have the same name as files in the output folder.\n\nOverwrite " +
-                            filteredReplaysThatHaveDuplicate.size() + " files?\n\nApplication might freeze " +
-                            "while files are being overwritten.");
-
-                    alert.getDialogPane().getButtonTypes().setAll(
-                            ButtonType.YES,
-                            ButtonType.CANCEL
-                    );
-
-                    DialogPane dialogPane = alert.getDialogPane();
-                    dialogPane.getStylesheets().add(
-                            getClass().getResource("/alertstyle.css")
-                                    .toExternalForm());
-                    dialogPane.getStyleClass().add("duplicateFileDialog");
-
-                    ButtonType selectedExitOption = alert.showAndWait().get();
-
-                    // overwrite the files
-                    if (selectedExitOption == ButtonType.YES) {
-
-                        for (Map.Entry<File,File> entry : filteredReplaysThatHaveDuplicate.entrySet()) {
-
-                            File inputFile = entry.getKey();
-                            File duplicateDestinationFile = entry.getValue();
-
-                            try {  // overwrite
-                                FileUtils.copyFile(inputFile, duplicateDestinationFile);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-
-                        controller.filteringProgressLabel.setText("Finished analyzing " + replays.size() +
-                                " replay files.  " + numReplayFilesFiltered.get() + " replay files have " +
-                                "been copied/overwritten in the output folder.");
-                    }
-                    // don't overwrite, update label
-                    else if (selectedExitOption == ButtonType.CANCEL) {
-
-                        controller.filteringProgressLabel.setText("Finished analyzing " + replays.size() +
-                                " replay files.  " + (hasCopiedFiles.get() ? "Some file(s) have been copied to " +
-                                "the output folder.  " : "") + "\nDuplicate files have not been overwritten.");
-                    }
-                }
 
                 controller.filterReplaysButton.setDisable(false);
+                controller.filterAndRenameReplaysButton.setDisable(false);
+                controller.filterByReplayNameCheckBox.setDisable(false);
+                controller.filtersTextArea.setDisable(false);
             });
 
             task.setOnFailed(evt -> {

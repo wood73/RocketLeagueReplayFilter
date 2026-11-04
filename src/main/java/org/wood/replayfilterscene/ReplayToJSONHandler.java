@@ -28,7 +28,7 @@ public class ReplayToJSONHandler {
 
         this.replayFilterController = replayFilterController;
 
-        if(!LOCAL_JSON_FOLDER.exists()) {
+        if(!LOCAL_JSON_FOLDER.getAbsoluteFile().exists()) {
             LOCAL_JSON_FOLDER.mkdir();
         }
     }
@@ -77,7 +77,7 @@ public class ReplayToJSONHandler {
                 // and user doesn't want to overwrite
                 boolean writeToFile = true;
 
-                if(outputFile.exists()) {
+                if(outputFile.getAbsoluteFile().exists()) {
 
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("");
@@ -132,11 +132,7 @@ public class ReplayToJSONHandler {
                     // open the folder
                     if(selectedExitOption == ButtonType.YES) {
 
-                        // get the parent file
-                        // create a new file object with absolute path to make sure parent directory exists
-                        File fileWithParent = new File(outputFile.getAbsoluteFile().getAbsolutePath());
-                        File parentFile = fileWithParent.getParentFile();
-
+                        File parentFile = Utility.getParentFile(outputFile);
                         Desktop desktop = Desktop.getDesktop();
                         try {
                             desktop.open(parentFile);
