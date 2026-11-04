@@ -54,7 +54,7 @@ Use cases:
 * The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.
   
 * The **Filter by whether there's a replay name** checkbox will add "ReplayName" to the **Comma Separated Filters text area**, effectively
-  filtering for any .replay files where a custom name was set.
+  filtering for any .replay files where an in-game name was set.
   
 * The **Comma Separated Filters** text area is where you specify the text that filters the replays.  For example, an input of
   "spinning, car, wizard" (excluding quotes) will filter for any .replay files that contain all 3 strings of text.  It is case-insensitive,
