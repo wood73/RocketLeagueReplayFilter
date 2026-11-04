@@ -28,7 +28,7 @@
 ## About The Project
 
 <img src="images/RocketLeagueReplayFilter Window.PNG" alt="program window">
-This program enables Rocket League replays to be copied to an output folder with their File System names renamed to their in-game names.  It can also filter which .replay files get copied to the output folder depending on 
+This program enables Rocket League replays to be copied to an output folder with their File System names renamed to their in-game names (with support for replays that share the same in-game name (by incrementing a number at the end of the file name)).  It can also filter which .replay files get copied to the output folder depending on 
 whether inputted text matches what's in the .replay files (after the .replay files have automatically been converted to 
 readable JSON format, thanks to jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>).
 <br /> <br />
