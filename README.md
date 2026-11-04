@@ -27,19 +27,21 @@
 
 ## About The Project
 
-<img src="images/RocketLeagueReplayFilter Window.png" alt="program window">
-This program enables Rocket League replays to be filtered (copied) to an output folder depending on 
+<img src="images/RocketLeagueReplayFilter Window.PNG" alt="program window">
+This program enables Rocket League replays to be copied to an output folder with their File System names renamed to their in-game names.  It can also filter which .replay files get copied to the output folder depending on 
 whether inputted text matches what's in the .replay files (after the .replay files have automatically been converted to 
 readable JSON format, thanks to jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>).
 <br /> <br />
 
 Use cases:
 
-* Filtering replays that have been given a name ("ReplayName" will be present in any replay given a name- even replays from 2017)
+* Renaming .replay file's File System names to match their in-game names
 
-* Filtering replays based on titles used in game
+* Filtering for replays that have been given an in-game name ("ReplayName" will be present in any replay given a name- even replays from 2017)
+
+* Filtering for replays based on titles used in game
   
-* Filtering replays based on usernames
+* Filtering for replays based on usernames
 <br /><br />
 
 ## Breakdown of the Graphical User Interface
@@ -59,6 +61,8 @@ Use cases:
   and leading and trailing spaces will be removed from each string of text.
   
 * The **Filter Replays** button will start filtering the replays using the above settings.
+
+* The **Filter and Rename Replays** button doesn't require filters, but supports them, and will rename replays in the output folder to match their in-game name (if present).  There's support for renaming replays that share the same in-game name (by incrementing a number in parentheses at the end of the file name).
   
 * The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.
