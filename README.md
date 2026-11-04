@@ -16,6 +16,7 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#breakdown-of-the-graphical-user-interface">Breakdown of the Graphical User Interface</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#additional-information">Additional Information</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#built-with">Built With</a></li>
@@ -67,6 +68,12 @@ Use cases:
 * The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.
   
+<br /><br />
+
+## Getting Started
+
+To rename .replay files on the File System to their in-game names, just set the **Input Folder** and **Output Folder** and click **Filter and Rename Replays**, and the renamed replays will appear in the output folder.  Optionally check the **Filter by whether there's a replay name** checkbox if you only want replays with an in-game name copied to the output folder.
+
 <br /><br />
 
 ## Additional Information
