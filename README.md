@@ -35,7 +35,7 @@ readable JSON format, thanks to jjbott's <a href="https://github.com/jjbott/Rock
 
 Use cases:
 
-* Renaming .replay file's File System names to match their in-game names
+* Renaming replay's File System names to match their in-game names
 
 * Filtering for replays that have been given an in-game name ("ReplayName" will be present in any replay given a name- even replays from 2017)
 
