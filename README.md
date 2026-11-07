@@ -102,7 +102,7 @@ For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplay
 
 ## Contributing
 
-Contributions are welcome - if you have a suggestion feel free to <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=enhancement&template=feature-request---.md">open an issue with the enhancement tag</a>, and maybe fork the repo and make a pull request.
+Contributions are welcome - if you have a suggestion feel free to <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=enhancement&template=feature-request---.md">open an issue</a> with the enhancement label/tag, and maybe fork the repo and make a pull request.
 
 <br /><br />
 
