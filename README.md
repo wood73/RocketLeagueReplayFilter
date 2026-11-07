@@ -23,6 +23,7 @@
     <li><a href="#installation">Installation</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#Dev-info">Dev info</a></li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -64,10 +65,12 @@ Use cases:
 * The **Comma Separated Filters** text area is where you specify the text that filters the replays.  For example, an input of
   "spinning, car, wizard" (excluding quotes) will filter for any .replay files that contain all 3 strings of text.  It is case-insensitive,
   and leading and trailing spaces will be removed from each string of text.
+
+* The **Rename Replays** button does not use filters, and will copy all replays to the output folder, then rename them to their in-game name (if   present).
+
+* The **Filter and Rename Replays** button will start filtering the replays using the above settings, and will rename replays in the output folder to match their in-game name (if present).
   
 * The **Filter Replays** button will start filtering the replays using the above settings.
-
-* The **Filter and Rename Replays** button doesn't require filters, but supports them, and will rename replays in the output folder to match their in-game name (if present).  There's support for renaming replays that share the same in-game name (by incrementing a number in parentheses at the end of the file name).
   
 * The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.
@@ -95,7 +98,7 @@ For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplay
 
 ## Roadmap
 
-- [ ] Add a separate button for **Rename Replays** and **Filter and Rename Replays** (I'm currently working on this)
+- [x] Add a separate button for **Rename Replays** and **Filter and Rename Replays**
 - [ ] Add a way to filter using OR logic, not just AND; maybe done by wrapping the OR operands in parentheses within the **Filters text area**
 
 <br /><br />
@@ -103,6 +106,14 @@ For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplay
 ## Contributing
 
 Contributions are welcome - if you have a suggestion feel free to <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=enhancement&template=feature-request---.md">open an issue</a> with the enhancement label/tag, and maybe fork the repo and make a pull request.
+
+<br /><br />
+
+## Dev info
+
+For getting started, after cloning this repository, and using Java 27, you'll need to get an updated version of RocketLeagueReplayParser.Console.exe, since RocketLeagueReplayParser's latest [release](https://github.com/jjbott/RocketLeagueReplayParser/releases) 3.11.0 is out of date with its repository.  I tested 3.11.0 to work with .replay files from 2023, but it broke with .replay files from October 2026.  You can get RocketLeagueReplayParser.Console.exe either by downloading the October 2026 version that comes with this program in [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases), or by building it yourself.
+<br /><br />
+For testing the program, I created the [Testing with replays](https://github.com/wood73/RocketLeagueReplayFilter/tree/master/Testing%20with%20replays) folder, which has two folders of replays, and [Testing procedure.txt](https://github.com/wood73/RocketLeagueReplayFilter/blob/master/Testing%20with%20replays/Testing%20procedure.txt), which goes over the expected inputs and outputs of several tests with different settings.  
 
 <br /><br />
 
