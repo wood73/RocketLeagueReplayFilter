@@ -49,10 +49,13 @@ public class ReplayFilterController implements Initializable {
     public TextArea filtersTextArea;
 
     @FXML
-    public JFXButton filterReplaysButton;
+    public JFXButton renameReplaysButton;
 
     @FXML
     public JFXButton filterAndRenameReplaysButton;
+
+    @FXML
+    public JFXButton filterReplaysButton;
 
     @FXML
     public Label filteringProgressLabel;
@@ -70,7 +73,7 @@ public class ReplayFilterController implements Initializable {
     public Stage stage;
 
     /** Handles when Filter Replays button is pressed */
-    private FilterReplaysHandler filterReplaysHandler;
+    private RenameOrFilterReplaysHandler renameOrFilterReplaysHandler;
 
     /** Handles when replay to JSON button is pressed */
     private ReplayToJSONHandler replayToJSONHandler;
@@ -87,15 +90,16 @@ public class ReplayFilterController implements Initializable {
             replayParserEXELabel.setText(replayParserEXE.getAbsoluteFile().getAbsolutePath());
         }
 
-        filterReplaysHandler = new FilterReplaysHandler(this);
+        renameOrFilterReplaysHandler = new RenameOrFilterReplaysHandler(this);
         replayToJSONHandler = new ReplayToJSONHandler(this);
 
         // make it so the most recently pressed button traversable / stay a different color
         replayParserLocationButton.setFocusTraversable(false);
         chooseInputFolderButton.setFocusTraversable(false);
         chooseOutputFolderButton.setFocusTraversable(false);
-        filterReplaysButton.setFocusTraversable(false);
+        renameReplaysButton.setFocusTraversable(false);
         filterAndRenameReplaysButton.setFocusTraversable(false);
+        filterReplaysButton.setFocusTraversable(false);
         replayToJSONButton.setFocusTraversable(false);
 
     }
@@ -117,14 +121,15 @@ public class ReplayFilterController implements Initializable {
                 "\"spinning, car, wizard\" (excluding quotes) will filter for any .replay files " +
                 "that contain all 3 strings of text.  It is case-insensitive, and " +
                 "leading and trailing spaces will be removed.\n\n" +
-                "The 'Filter Replays' button will start filtering the replays using the " +
+                "The 'Rename Replays' button does not use filters, and will copy all replays to the output folder, " +
+                "then rename them to their in-game name (if present)\n\n" +
+                "The 'Filter Replays' button will start filtering the replays to the output folder using the " +
                 "above settings.\n\n" +
-                "The 'Filter and Rename Replays' button doesn't require filters, but supports them, " +
-                "and will rename replays in the output folder to match their in-game name (if present).\n\n" +
+                "The 'Filter and Rename Replays' will filter replays to the output folder using the above settings and " +
+                "will rename replays in the output folder to match their in-game name (if present).\n\n" +
                 "If you want to analyze the replay files in the same format this program does, " +
                 "you can press the 'Choose Replay to Convert to JSON' button, which " +
-                "will prompt you to choose a replay file.  Make sure the " +
-                "RocketLeagueReplayParser.Console.exe Location is set.");
+                "will prompt you to choose a replay file.");
 
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(
@@ -219,14 +224,22 @@ public class ReplayFilterController implements Initializable {
         }
     }
 
-    /** Forwards execution on Filter Replays button click */
-    public void filterReplays() {
-        filterReplaysHandler.filterReplays(false);
+    /** Forwards execution on Rename Replays button click */
+    public void renameReplays() {
+
+        renameOrFilterReplaysHandler.renameOrFilterReplays(ReplayCopyButtons.RENAME_REPLAYS);
     }
 
     /** Forwards execution on Filter And Rename Replays button click */
     public void filterAndRenameReplays() {
-        filterReplaysHandler.filterReplays(true);
+
+        renameOrFilterReplaysHandler.renameOrFilterReplays(ReplayCopyButtons.FILTER_RENAME_REPLAYS);
+    }
+
+    /** Forwards execution on Filter Replays button click */
+    public void filterReplays() {
+
+        renameOrFilterReplaysHandler.renameOrFilterReplays(ReplayCopyButtons.FILTER_REPLAYS);
     }
 
     /** Forwards execution on replayToJSONButton click */

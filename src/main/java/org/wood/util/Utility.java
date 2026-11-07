@@ -171,8 +171,7 @@ public class Utility {
      */
     public static File getUniqueReplayFile(File file) {
 
-        // while the file exists, keep incrementing a number in parenthesis at the end of the filename
-        // need to use file.getAbsoluteFile.exists() as per SO
+        // while the file exists, keep incrementing a number in parentheses at the end of the filename
         while(file.getAbsoluteFile().exists()) {
             String fileName = file.getName();
             String fileNameWithoutExtension = fileName.substring(0, fileName.lastIndexOf('.'));

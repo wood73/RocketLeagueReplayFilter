@@ -1,0 +1,26 @@
+When testing renaming, double checking the output folder is helpful, and for filtering checking the JSON output can be helpful.
+
+folder: same name moon test 14
+----------------------------
+There are 14 replays named 'moon test' and 27 others, this is to test filtering and renaming, and that October 2026 replays work with RocketLeagueReplayParser, and to test the renaming capabilities with 14 replays with the same in-game name.
+
+This test freezes using the outdated RocketLeagueReplayParser 3.11.0 on RocketLeagueReplayParser's github releases, but has no issue with the repo built to an .exe during October 2026.
+
+Rename Replays results: 41 replays copied with 27 renamed
+
+Filter and Rename Replays w/ 'Filter by whether there's a replay name' checked results: 27 copied and renamed
+
+Filter Replays with filters set to 'moon test' results: 14 filtered
+------------------------------------------------------------
+
+folder: test title lucky devil 3
+-----------------------
+There are 3 replays where the title 'lucky devil' is used, with a total of 25 replays in the input folder.
+
+Rename Replays results: 25 copied with 16 renamed
+
+Filter and Rename Replays w/ filter set to 'lucky, devil' results: 3 matches copied w/ 2 renamed
+
+Filter and Rename Replays w/ filter set to 'ReplayName, lucky, devil' results: 2 matches copied w/ 2 renamed
+
+Filter Replays with filter set to 'ReplayName, lucky, devil' results: 2 matches found and copied
