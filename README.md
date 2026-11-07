@@ -6,6 +6,8 @@
 
   <p align="center">
     <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -16,9 +18,11 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#breakdown-of-the-graphical-user-interface">Breakdown of the Graphical User Interface</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#additional-information">Additional Information</a></li>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -70,7 +74,7 @@ Use cases:
   
 <br /><br />
 
-## Getting Started
+## Usage
 
 To rename .replay files on the File System to their in-game names, just set the **Input Folder** and **Output Folder** and click **Filter and Rename Replays**, and the renamed replays will appear in the output folder.  Optionally check the **Filter by whether there's a replay name** checkbox if you only want replays with an in-game name copied to the output folder.
 
@@ -86,6 +90,19 @@ If you're on Steam you may need to temporarily disable Steam Cloud if you remove
 ## Installation
 
 For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases) page.
+
+<br /><br />
+
+## Roadmap
+
+- [ ] Add a separate button for **Rename Replays** and **Filter and Rename Replays** (I'm currently working on this)
+- [ ] Add a way to filter using OR logic, not just AND; maybe done by wrapping the OR operands in parentheses within the **Filters text area**
+
+<br /><br />
+
+## Contributing
+
+Contributions are welcome - if you have a suggestion feel free to <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=enhancement&template=feature-request---.md">open an issue with the enhancement tag</a>, and maybe fork the repo and make a pull request.
 
 <br /><br />
 
