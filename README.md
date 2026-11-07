@@ -6,6 +6,8 @@
 
   <p align="center">
     <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -16,8 +18,11 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#breakdown-of-the-graphical-user-interface">Breakdown of the Graphical User Interface</a></li>
+    <li><a href="#usage">Usage</a></li>
     <li><a href="#additional-information">Additional Information</a></li>
     <li><a href="#installation">Installation</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -27,19 +32,21 @@
 
 ## About The Project
 
-<img src="images/RocketLeagueReplayFilter Window.png" alt="program window">
-This program enables Rocket League replays to be filtered (copied) to an output folder depending on 
+<img src="images/RocketLeagueReplayFilter Window.PNG" alt="program window">
+This program enables Rocket League replays to be copied to an output folder with their File System names renamed to their in-game names (with support for replays that share the same in-game name (by incrementing a number at the end of the file name)).  It can also filter which .replay files get copied to the output folder depending on 
 whether inputted text matches what's in the .replay files (after the .replay files have automatically been converted to 
 readable JSON format, thanks to jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>).
 <br /> <br />
 
 Use cases:
 
-* Filtering replays that have been given a name ("ReplayName" will be present in any replay given a name- even replays from 2017)
+* Renaming replay's File System names to match their in-game names
 
-* Filtering replays based on titles used in game
+* Filtering for replays that have been given an in-game name ("ReplayName" will be present in any replay given a name- even replays from 2017)
+
+* Filtering for replays based on titles used in game
   
-* Filtering replays based on usernames
+* Filtering for replays based on usernames
 <br /><br />
 
 ## Breakdown of the Graphical User Interface
@@ -52,17 +59,25 @@ Use cases:
 * The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.
   
 * The **Filter by whether there's a replay name** checkbox will add "ReplayName" to the **Comma Separated Filters text area**, effectively
-  filtering for any .replay files where a custom name was set.
+  filtering for any .replay files where an in-game name was set.
   
 * The **Comma Separated Filters** text area is where you specify the text that filters the replays.  For example, an input of
   "spinning, car, wizard" (excluding quotes) will filter for any .replay files that contain all 3 strings of text.  It is case-insensitive,
   and leading and trailing spaces will be removed from each string of text.
   
 * The **Filter Replays** button will start filtering the replays using the above settings.
+
+* The **Filter and Rename Replays** button doesn't require filters, but supports them, and will rename replays in the output folder to match their in-game name (if present).  There's support for renaming replays that share the same in-game name (by incrementing a number in parentheses at the end of the file name).
   
 * The **Choose Replay File to Convert to JSON** button will prompt you to choose a .replay file to convert into a readable JSON file using
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a>.  This can be handy if you want to analyze a replay.
   
+<br /><br />
+
+## Usage
+
+To rename .replay files on the File System to their in-game names, just set the **Input Folder** and **Output Folder** and click **Filter and Rename Replays**, and the renamed replays will appear in the output folder.  Optionally check the **Filter by whether there's a replay name** checkbox if you only want replays with an in-game name copied to the output folder.
+
 <br /><br />
 
 ## Additional Information
@@ -75,6 +90,19 @@ If you're on Steam you may need to temporarily disable Steam Cloud if you remove
 ## Installation
 
 For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases) page.
+
+<br /><br />
+
+## Roadmap
+
+- [ ] Add a separate button for **Rename Replays** and **Filter and Rename Replays** (I'm currently working on this)
+- [ ] Add a way to filter using OR logic, not just AND; maybe done by wrapping the OR operands in parentheses within the **Filters text area**
+
+<br /><br />
+
+## Contributing
+
+Contributions are welcome - if you have a suggestion feel free to <a href="https://github.com/wood73/RocketLeagueReplayFilter/issues/new?labels=enhancement&template=feature-request---.md">open an issue</a> with the enhancement label/tag, and maybe fork the repo and make a pull request.
 
 <br /><br />
 
