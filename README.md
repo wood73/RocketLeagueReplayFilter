@@ -100,8 +100,8 @@ For Windows x64, see the [releases](https://github.com/wood73/RocketLeagueReplay
 
 ## Roadmap
 
-- [x] Add a separate button for **Rename Replays** and **Filter and Rename Replays**
-- [ ] Add a way to filter using OR logic, not just AND; maybe done by wrapping the OR operands in parentheses within the **Filters text area**
+- [x] Instead of **Filter and Rename Replays** handling both renaming with and without a filter, add a separate button to handle renaming without a filter.
+- [ ] Add a way to filter using OR logic, not just AND; maybe done by wrapping the OR operands in parentheses within the **Filters text area**.
 
 <br /><br />
 
