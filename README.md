@@ -116,6 +116,8 @@ Contributions are welcome - if you have a suggestion feel free to <a href="https
 For getting started, after cloning this repository, and using Java 27, you'll need to get an updated version of RocketLeagueReplayParser.Console.exe, since RocketLeagueReplayParser's latest [release](https://github.com/jjbott/RocketLeagueReplayParser/releases) 3.11.0 is out of date with its repository.  I tested 3.11.0 to partially work with older (2019 & 2023) .replay files, but it broke with .replay files from October 2026.  You can get RocketLeagueReplayParser.Console.exe either by downloading the October 2026 version that comes with this program in [releases](https://github.com/wood73/RocketLeagueReplayFilter/releases), or by building it yourself.
 <br /><br />
 For testing the program, I created the [Testing with replays](https://github.com/wood73/RocketLeagueReplayFilter/tree/master/Testing%20with%20replays) folder, which has two folders of replays, and [Testing procedure.txt](https://github.com/wood73/RocketLeagueReplayFilter/blob/master/Testing%20with%20replays/Testing%20procedure.txt), which goes over the expected inputs and outputs of several tests with different settings.  
+<br /><br />
+There are also some JUnit tests for the Utility class in the tests folder.
 
 <br /><br />
 
