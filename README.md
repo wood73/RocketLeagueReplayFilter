@@ -79,7 +79,7 @@ Use cases:
 
 ## Usage
 
-To rename .replay files on the File System to their in-game names, just set the **Input Folder** and **Output Folder** and click **Rename Replays**, and the renamed replays will appear in the output folder.
+To rename .replay files on the File System to their in-game names, just set the **Input Folder** and **Output Folder** and click **Rename Replays**, and the renamed replays will appear in the output folder (along with replays that don't have an in-game name).
 <br /><br />
 To rename .replay files on the File System to their in-game names and sort them from replays without an in-game name, make sure the input and output folders are set, and check the **Filter by whether there's a replay name** checkbox, and click the **Filter and Rename Replays** button.
 
