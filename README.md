@@ -55,9 +55,9 @@ Use cases:
 * The **Pick RocketLeagueReplayParser.Console.exe Location** button isn't needed by default, since this program comes packaged with
   jjbott's <a href="https://github.com/jjbott/RocketLeagueReplayParser">RocketLeagueReplayParser</a> (in releases, not the repo), and it'll find the path automatically.
   
-* The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter from.
+* The **Choose Input Folder** button will prompt you to pick a folder, that should be a collection of replays that you want to filter/rename from.
   
-* The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered replays to be copied to.
+* The **Choose Output Folder** button will prompt you to pick a folder, that should be where you want filtered/renamed replays to be copied to.
   
 * The **Filter by whether there's a replay name** checkbox will add "ReplayName" to the **Comma Separated Filters text area**, effectively
   filtering for any .replay files where an in-game name was set.
